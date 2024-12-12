@@ -138,7 +138,7 @@ export default function Game() {
     let bestScore = -Infinity;
     let bestMove = null;
     
-    // 检查是否有立即获胜���机会
+    // 检查是否有立即获胜的机会
     for (let i = 0; i < 15; i++) {
       for (let j = 0; j < 15; j++) {
         if (!squares[i][j]) {
@@ -268,13 +268,13 @@ export default function Game() {
     return (
       <GameContainer>
         <h1>五子棋</h1>
-        <GameContent>
-          <div>
-            <h2>请选择：</h2>
-            <Button onClick={() => startGame(true)}>黑先手</Button>
-            <Button onClick={() => startGame(false)}>执白后手</Button>
+        <StartScreen>
+          <h2>请选择您的执子颜色</h2>
+          <div className="button-group">
+            <Button primary onClick={() => startGame(true)}>执黑先手</Button>
+            <Button primary onClick={() => startGame(false)}>执白后手</Button>
           </div>
-        </GameContent>
+        </StartScreen>
       </GameContainer>
     );
   }
@@ -294,16 +294,22 @@ export default function Game() {
           <div>
             {isPlayerBlack ? '你执黑棋' : '你执白棋'}
           </div>
-          <Button 
-            onClick={handleUndo}
-            disabled={currentMove < 2 || isThinking}
-            style={{ opacity: (currentMove < 2 || isThinking) ? 0.5 : 1 }}
-          >
-            悔棋
-          </Button>
-          <Button onClick={() => setGameStarted(false)}>
-            重新开始
-          </Button>
+          <div className="button-container">
+            <Button 
+              onClick={handleUndo}
+              disabled={currentMove < 2 || isThinking}
+              style={{ opacity: (currentMove < 2 || isThinking) ? 0.5 : 1 }}
+              primary
+            >
+              悔棋
+            </Button>
+            <Button 
+              onClick={() => setGameStarted(false)}
+              primary
+            >
+              重新开始
+            </Button>
+          </div>
         </GameInfo>
       </GameContent>
     </GameContainer>
@@ -374,34 +380,58 @@ const GameContainer = styled.div`
   min-height: 100vh;
 `;
 
+const StartScreen = styled.div`
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+`;
+
 const GameContent = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 40px;  // 增加间距
   margin-top: 20px;
+  align-items: flex-start;  // 确保顶部对齐
 `;
 
 const GameInfo = styled.div`
-  padding: 20px;
+  padding: 30px;  // 增加内边距
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  min-width: 200px;
+  border-radius: 12px;  // 增加圆角
+  min-width: 240px;  // 增加宽度
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-  ol {
-    padding-left: 30px;
+  > div:first-child {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
   }
 
-  button {
-    margin: 5px 0;
-    padding: 5px 10px;
-    background: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  > div:nth-child(2) {
+    margin-bottom: 30px;
+    color: #34495e;
+    font-size: 16px;
+  }
 
-    &:hover {
-      background: #357abd;
-    }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  // 按钮之间的间距
   }
 `;
 
@@ -451,16 +481,26 @@ const StatusDiv = styled.div`
 `;
 
 const Button = styled.button`
-  margin: 10px;
-  padding: 10px 20px;
-  background: #4a90e2;
+  margin: 0;  // 移除margin，使用gap控制间距
+  padding: 12px 24px;
+  background: ${props => props.primary ? '#4a90e2' : '#95a5a6'};
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;  // 让按钮填满容器
 
   &:hover {
-    background: ${props => props.disabled ? '#4a90e2' : '#357abd'};
+    background: ${props => {
+      if (props.disabled) return props.primary ? '#4a90e2' : '#95a5a6';
+      return props.primary ? '#357abd' : '#7f8c8d';
+    }};
+    transform: ${props => props.disabled ? 'none' : 'translateY(-2px)'};
+  }
+
+  &:active {
+    transform: ${props => props.disabled ? 'none' : 'translateY(0)'};
   }
 `; 
