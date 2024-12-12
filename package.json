@@ -36,5 +36,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://您的实际GitHub用户名.github.io/web-lab7"
+  "homepage": "https://您的实际GitHub用户名.github.io/web-lab7",
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  }
 }
