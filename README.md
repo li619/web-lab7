@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# React 五子棋游戏
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个使用 React 和 styled-components 构建的五子棋游戏，支持人机对战。
 
-## Available Scripts
+## 功能特点
 
-In the project directory, you can run:
+- 🎮 支持人机对战
+- 🎯 智能AI对手
+- 🔄 悔棋功能
+- 🎨 美观的界面设计
+- 🎲 可选择执黑先手或执白后手
+- 📱 响应式设计
 
-### `npm start`
+## 在线演示
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+访问 [GitHub Pages](https://你的用户名.github.io/仓库名) 体验游戏
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 本地运行
 
-### `npm test`
+1. 克隆仓库
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+git clone https://github.com/你的用户名/仓库名.git
 
-### `npm run build`
+2. 安装依赖
+bash
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. 启动开发服务器
+bash
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. 打开浏览器访问 http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 技术栈
 
-### `npm run eject`
+- React
+- styled-components
+- JavaScript ES6+
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 游戏规则
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 黑白双方交替落子
+- 先形成五子连线（横、竖、斜）的一方获胜
+- 可以随时悔棋或重新开始
+- 棋盘填满且无人获胜则为平局
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 开发者
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[你的名字]
 
-## Learn More
+## 许可证
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+MIT License
+这个 README.md 包含了：
+项目简介
+主要功能
+3. 如何运行
+技术栈
+游戏规则
+开发者信息
+许可证信息
+你可以根据需要修改内容，比如：
+添加项目截图
+更新在线演示链接
+添加更详细的游戏说明
+添加贡献指南
+添加更多技术细节
+需要我帮你修改或添加其他内容吗？
+readme文档你没有写完，请写完
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+好的，让我继续完成 README.md 文档：
 
-### Code Splitting
+## 在线演示
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+访问 [GitHub Pages](https://你的用户名.github.io/仓库名) 体验游戏
 
-### Analyzing the Bundle Size
+## 本地运行
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. 克隆仓库
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 在线演示
 
-### Advanced Configuration
+访问 [GitHub Pages](https://li619.github.io/web-lab7) 体验游戏
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 本地运行
 
-### Deployment
+1. 克隆仓库
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+bash
+git clone https://github.com/li619/web-lab7.git
 
-### `npm run build` fails to minify
+2. 安装依赖
+bash
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. 启动开发服务器
+bash
+npm start
+
+4. 打开浏览器访问 http://localhost:3000
+
+## 技术栈
+
+- React 18
+- styled-components
+- JavaScript ES6+
+
+## 游戏规则
+
+- 玩家可以选择执黑先手或执白后手
+- 黑白双方交替落子
+- 先形成五子连线（横、竖、斜）的一方获胜
+- 可以使用悔棋功能回退一步
+- 可以随时重新开始游戏
+- 棋盘填满且无人获胜则为平局
+
+## AI策略
+
+AI采用评分系统进行决策：
+- 连五：100000分（必胜）
+- 活四：10000分
+- 冲四：1000分
+- 活三：1000分
+- 眠三：100分
+- 活二：100分
+- 眠二：10分
+
+AI会：
+1. 优先寻找必胜位置
+2. 阻止玩家的必胜位置
+3. 评估每个可能的落子位置
+4. 选择最高分值的位置落子
+
+## 项目结构
+
+src/
+├── components/
+│ └── Gomoku.js # 主要游戏组件
+├── App.js # 应用入口
+└── index.js # 渲染入口
+
+## 部署
+
+使用 GitHub Pages 部署：
+
+npm run deploy
+
+
+## 开发者
+
+[Li619](https://github.com/li619)
+
+## 许可证
+
+MIT License
+
+## 致谢
+
+- Create React App
+- styled-components
+- GitHub Pages
